@@ -1,8 +1,8 @@
-# 🛡️ DataSafe — Sistema de Gestão de EPIs
+# DataSafe — Sistema de Gestão de EPIs
 
 SaaS corporativo para gestão de Equipamentos de Proteção Individual (EPIs), construído com Next.js 14 (App Router), React Context API e Tailwind CSS.
 
-## 🚀 Como Iniciar
+## Como Iniciar
 
 ```bash
 # 1. Instale as dependências
@@ -15,7 +15,7 @@ npm run dev
 http://localhost:3000
 ```
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 src/
@@ -50,7 +50,7 @@ src/
 │       └── index.tsx           # Button, Input, Select, Card, Badge, Modal...
 │
 ├── context/
-│   └── EPIContext.tsx          # ⭐ CONTEXTO GLOBAL — toda a lógica de estado
+│   └── EPIContext.tsx          # CONTEXTO GLOBAL — toda a lógica de estado
 │
 ├── lib/
 │   └── storage.ts              # Utilitários do LocalStorage
@@ -59,7 +59,7 @@ src/
     └── index.ts                # Interfaces TypeScript globais
 ```
 
-## 🏗️ Arquitetura e Decisões Técnicas
+## Arquitetura e Decisões Técnicas
 
 ### Persistência: LocalStorage
 Todos os dados são armazenados no `localStorage` do navegador com chaves prefixadas por `datasafe:`:
@@ -84,7 +84,7 @@ O componente `AuthGuard` envolve todas as páginas privadas:
 2. Redireciona para `/login` se não houver sessão ativa
 3. Renderiza os filhos somente com sessão confirmada
 
-## 🎨 Identidade Visual
+## Identidade Visual
 - **Tema**: Dark Industrial
 - **Fundo**: `bg-slate-900`
 - **Cards**: `bg-slate-800`
@@ -93,7 +93,7 @@ O componente `AuthGuard` envolve todas as páginas privadas:
 - **Bordas**: `border-slate-700`
 - **Ícones**: `lucide-react`
 
-## ⚡ Fluxo de Uso
+## Fluxo de Uso
 1. Acesse `/cadastro` para criar a conta da sua empresa
 2. Faça login em `/login`
 3. Cadastre funcionários em `/funcionarios`
