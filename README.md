@@ -96,3 +96,6 @@ O componente `AuthGuard` envolve todas as páginas privadas:
 5. Registre entregas em `/relatorios`
 6. Acompanhe métricas no `/dashboard`
 "# DataSafe" 
+
+
+Desenvolvido por: **Luiz Filipe Avila** - Conecte-se comigo no [LinkedIn](https://www.linkedin.com/in/luiz-filipe-avila/)
