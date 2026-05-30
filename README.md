@@ -4,16 +4,10 @@ SaaS corporativo para gestão de Equipamentos de Proteção Individual (EPIs), c
 
 ## Como Iniciar
 
-```bash
-# 1. Instale as dependências
-npm install
+Acesse o link do projeto
 
-# 2. Execute em modo desenvolvimento
-npm run dev
+data-safe-tawny.vercel.app
 
-# 3. Acesse no navegador
-http://localhost:3000
-```
 
 ## Estrutura do Projeto
 
