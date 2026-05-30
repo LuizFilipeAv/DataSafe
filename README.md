@@ -5,6 +5,7 @@ SaaS corporativo para gestão de Equipamentos de Proteção Individual (EPIs), c
 ## Como Iniciar
 
 Clique no link abaixo:
+
 [Link do projeto](data-safe-tawny.vercel.app)
 
 
