@@ -48,17 +48,17 @@ export default function CadastroPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-[100svh] app-background flex items-center justify-center p-5 sm:p-8">
+      <div className="w-full max-w-md animate-fade-in">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#FF8C00] shadow-lg shadow-orange-900/40 mb-4">
+          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#FF8C00] shadow-xl shadow-orange-950/40 mb-4">
             <ShieldCheck size={28} className="text-white" />
           </div>
           <h1 className="text-2xl font-bold text-slate-50">Criar Conta Empresarial</h1>
           <p className="text-slate-400 text-sm mt-1">DataSafe — Gestão de EPIs</p>
         </div>
 
-        <div className="bg-slate-800 border border-slate-700 rounded-2xl p-7 shadow-2xl">
+        <div className="bg-slate-800/75 border border-slate-700/80 rounded-3xl p-6 shadow-panel backdrop-blur-sm sm:p-7">
           {sucesso ? (
             <div className="flex flex-col items-center gap-3 py-8 text-center">
               <CheckCircle size={48} className="text-green-400" />
@@ -104,7 +104,7 @@ export default function CadastroPage() {
 
         <p className="text-center text-sm text-slate-500 mt-5">
           Já tem uma conta?{" "}
-          <Link href="/login" className="text-[#FF8C00] hover:text-orange-400 font-medium transition-colors">
+          <Link href="/login" className="text-[#FF8C00] hover:text-orange-300 font-semibold transition-colors">
             Fazer login
           </Link>
         </p>

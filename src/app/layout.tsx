@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { EPIProvider } from "@/context/EPIContext";
@@ -11,6 +11,14 @@ export const metadata: Metadata = {
     "Sistema corporativo de gestão de Equipamentos de Proteção Individual",
 };
 
+export const viewport: Viewport = {
+  colorScheme: "dark",
+  themeColor: "#09111f",
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -19,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${inter.className} bg-slate-900 text-slate-50 antialiased`}
+        className={`${inter.className} bg-ink text-slate-50 antialiased`}
       >
         <EPIProvider>{children}</EPIProvider>
       </body>

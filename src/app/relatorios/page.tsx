@@ -65,9 +65,9 @@ export default function RelatoriosPage() {
       subtitle="Registre entregas de EPIs e consulte o histórico completo."
     >
       {/* Formulário de Registro de Entrega */}
-      <Card className="mb-6">
-        <div className="flex items-center gap-2 mb-5">
-          <Send size={18} className="text-[#FF8C00]" />
+      <Card className="mb-8">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="grid size-9 place-items-center rounded-xl bg-orange-500/10 text-[#FF8C00]"><Send size={17} /></div>
           <h3 className="font-semibold text-slate-100">Registrar Nova Entrega</h3>
         </div>
 
@@ -158,12 +158,12 @@ export default function RelatoriosPage() {
               placeholder="Filtrar histórico..."
               value={buscaHistorico}
               onChange={(e) => setBuscaHistorico(e.target.value)}
-              className="w-full bg-slate-800 border border-slate-700 rounded-lg pl-9 pr-3 py-2 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-[#FF8C00] transition-all"
+            className="w-full rounded-xl border border-slate-700/80 bg-slate-800/70 py-2.5 pl-9 pr-3 text-sm text-slate-100 placeholder-slate-600 outline-none transition-[border-color,box-shadow] focus:border-[#FF8C00]/80 focus:ring-4 focus:ring-orange-500/10"
             />
           </div>
         </div>
 
-        <div className="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden">
+        <div className="overflow-x-auto rounded-2xl border border-slate-700/70 bg-slate-800/70 shadow-panel">
           {entregasFiltradas.length === 0 ? (
             <EmptyState
               icon={<FileText size={24} />}
@@ -171,17 +171,17 @@ export default function RelatoriosPage() {
               description={buscaHistorico ? "Nenhum resultado para o filtro aplicado." : "As entregas registradas aparecerão aqui."}
             />
           ) : (
-            <table className="w-full text-sm">
+            <table className="w-full min-w-[620px] text-sm">
               <thead>
-                <tr className="border-b border-slate-700 bg-slate-700/30">
+                <tr className="border-b border-slate-700/80 bg-slate-950/30">
                   <th className="text-left text-xs font-semibold text-slate-400 uppercase tracking-wider px-5 py-3">Data e Hora</th>
                   <th className="text-left text-xs font-semibold text-slate-400 uppercase tracking-wider px-5 py-3">Funcionário</th>
                   <th className="text-left text-xs font-semibold text-slate-400 uppercase tracking-wider px-5 py-3">EPI Entregue</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-700/50">
+              <tbody className="divide-y divide-slate-700/60">
                 {entregasFiltradas.map((entrega) => (
-                  <tr key={entrega.id} className="hover:bg-slate-700/20 transition-colors">
+                  <tr key={entrega.id} className="hover:bg-slate-700/30 transition-colors">
                     <td className="px-5 py-3.5 text-slate-400 text-xs whitespace-nowrap">
                       {new Date(entrega.data).toLocaleDateString("pt-BR", {
                         day: "2-digit",
