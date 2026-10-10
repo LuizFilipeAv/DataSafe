@@ -82,7 +82,7 @@ export default function EPIsPage() {
       subtitle="Gerencie os equipamentos de proteção individual da empresa."
     >
       {/* Barra de ações */}
-      <div className="flex flex-col sm:flex-row gap-3 mb-6">
+      <div className="mb-6 flex flex-col gap-3 sm:flex-row">
         <div className="relative flex-1">
           <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
           <input
@@ -90,7 +90,7 @@ export default function EPIsPage() {
             placeholder="Buscar por nome ou CA..."
             value={busca}
             onChange={(e) => setBusca(e.target.value)}
-            className="w-full bg-slate-800 border border-slate-700 rounded-lg pl-9 pr-3 py-2.5 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-[#FF8C00] transition-all"
+            className="w-full rounded-xl border border-slate-700/80 bg-slate-800/70 py-2.5 pl-9 pr-3 text-sm text-slate-100 placeholder-slate-600 outline-none transition-[border-color,box-shadow] focus:border-[#FF8C00]/80 focus:ring-4 focus:ring-orange-500/10"
           />
         </div>
         <Button onClick={() => abrirModal()}>
@@ -100,7 +100,7 @@ export default function EPIsPage() {
       </div>
 
       {/* Tabela */}
-      <div className="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden">
+      <div className="overflow-x-auto rounded-2xl border border-slate-700/70 bg-slate-800/70 shadow-panel">
         {episFiltrados.length === 0 ? (
           <EmptyState
             icon={<Package size={24} />}
@@ -108,9 +108,9 @@ export default function EPIsPage() {
             description={busca ? "Tente outros termos na busca." : "Cadastre o primeiro EPI clicando em 'Novo EPI'."}
           />
         ) : (
-          <table className="w-full text-sm">
+          <table className="w-full min-w-[820px] text-sm">
             <thead>
-              <tr className="border-b border-slate-700 bg-slate-700/30">
+              <tr className="border-b border-slate-700/80 bg-slate-950/30">
                 <th className="text-left text-xs font-semibold text-slate-400 uppercase tracking-wider px-5 py-3">Equipamento</th>
                 <th className="text-left text-xs font-semibold text-slate-400 uppercase tracking-wider px-5 py-3">CA</th>
                 <th className="text-left text-xs font-semibold text-slate-400 uppercase tracking-wider px-5 py-3">Validade</th>
@@ -118,11 +118,11 @@ export default function EPIsPage() {
                 <th className="text-right text-xs font-semibold text-slate-400 uppercase tracking-wider px-5 py-3">Ações</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-700/50">
+            <tbody className="divide-y divide-slate-700/60">
               {episFiltrados.map((epi) => {
                 const status = getStatusValidade(epi.dataValidade);
                 return (
-                  <tr key={epi.id} className="hover:bg-slate-700/20 transition-colors">
+                  <tr key={epi.id} className="hover:bg-slate-700/30 transition-colors">
                     <td className="px-5 py-3.5 font-medium text-slate-200">{epi.nome}</td>
                     <td className="px-5 py-3.5 text-slate-400 font-mono text-xs">{epi.ca}</td>
                     <td className="px-5 py-3.5">

@@ -19,9 +19,9 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
   // Tela de carregamento enquanto verifica a sessão
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-slate-900 flex items-center justify-center">
+      <div className="min-h-[100dvh] app-background flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
-          <div className="w-12 h-12 rounded-xl bg-[#FF8C00] flex items-center justify-center animate-pulse">
+          <div className="w-12 h-12 rounded-xl bg-[#FF8C00] flex items-center justify-center shadow-lg shadow-orange-950/30 animate-pulse">
             <ShieldCheck size={24} className="text-white" />
           </div>
           <p className="text-slate-400 text-sm">Carregando DataSafe...</p>

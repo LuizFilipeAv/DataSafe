@@ -22,15 +22,15 @@ export function Button({
   ...props
 }: ButtonProps) {
   const base =
-    "inline-flex items-center gap-2 font-semibold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed";
-  const sizes = { sm: "px-3 py-1.5 text-sm", md: "px-4 py-2.5 text-sm" };
+    "inline-flex items-center gap-2 justify-center font-semibold rounded-xl transition-[transform,background-color,border-color,color,box-shadow] duration-150 ease-out active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100";
+  const sizes = { sm: "px-3 py-2 text-xs", md: "px-4 py-2.5 text-sm" };
   const variants = {
     primary:
-      "bg-[#FF8C00] hover:bg-[#e07a00] text-white shadow-lg shadow-orange-900/20",
+      "bg-[#FF8C00] hover:bg-[#f59e0b] text-slate-950 shadow-lg shadow-orange-950/30",
     ghost:
-      "bg-slate-700 hover:bg-slate-600 text-slate-200 border border-slate-600",
+      "bg-slate-800/70 hover:bg-slate-700 text-slate-100 border border-slate-700",
     danger:
-      "bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20",
+      "bg-red-500/10 hover:bg-red-500/20 text-red-300 border border-red-500/25",
   };
   return (
     <button
@@ -52,12 +52,12 @@ export function Input({ label, error, className = "", ...props }: InputProps) {
   return (
     <div className="flex flex-col gap-1.5">
       {label && (
-        <label className="text-xs font-medium text-slate-400 uppercase tracking-wider">
+        <label className="text-xs font-semibold text-slate-400">
           {label}
         </label>
       )}
       <input
-        className={`bg-slate-900 border border-slate-700 rounded-lg px-3 py-2.5 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-[#FF8C00] focus:ring-1 focus:ring-[#FF8C00]/30 transition-all ${error ? "border-red-500" : ""} ${className}`}
+        className={`w-full bg-slate-950/50 border border-slate-700/80 rounded-xl px-3.5 py-2.5 text-sm text-slate-100 placeholder-slate-600 outline-none transition-[border-color,box-shadow,background-color] duration-150 focus:border-[#FF8C00]/80 focus:bg-slate-950 focus:ring-4 focus:ring-orange-500/10 ${error ? "border-red-500" : ""} ${className}`}
         {...props}
       />
       {error && <p className="text-xs text-red-400">{error}</p>}
@@ -80,13 +80,13 @@ export function Select({
   return (
     <div className="flex flex-col gap-1.5">
       {label && (
-        <label className="text-xs font-medium text-slate-400 uppercase tracking-wider">
+        <label className="text-xs font-semibold text-slate-400">
           {label}
         </label>
       )}
       <div className="relative group">
         <select
-          className={`w-full appearance-none bg-slate-900 border border-slate-700 rounded-lg px-3 py-2.5 pr-9 text-sm text-slate-100 focus:outline-none focus:border-[#FF8C00] focus:ring-1 focus:ring-[#FF8C00]/30 transition-all cursor-pointer ${className}`}
+          className={`w-full appearance-none bg-slate-950/50 border border-slate-700/80 rounded-xl px-3.5 py-2.5 pr-9 text-sm text-slate-100 outline-none transition-[border-color,box-shadow,background-color] duration-150 focus:border-[#FF8C00]/80 focus:bg-slate-950 focus:ring-4 focus:ring-orange-500/10 cursor-pointer ${className}`}
           {...props}
         >
           {children}
@@ -118,7 +118,7 @@ export function Card({
 }) {
   return (
     <div
-      className={`bg-slate-800 border border-slate-700 rounded-xl p-6 ${className}`}
+      className={`bg-slate-800/70 border border-slate-700/70 rounded-2xl p-5 shadow-panel backdrop-blur-sm sm:p-6 ${className}`}
     >
       {children}
     </div>
@@ -142,7 +142,7 @@ export function Badge({
   };
   return (
     <span
-      className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium border ${colors[color]}`}
+      className={`inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-medium border ${colors[color]}`}
     >
       {children}
     </span>
@@ -160,13 +160,14 @@ export function Modal({
   onClose: () => void;
 }) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-      <div className="bg-slate-800 border border-slate-700 rounded-xl w-full max-w-md shadow-2xl animate-fade-in">
-        <div className="flex items-center justify-between p-5 border-b border-slate-700">
+    <div className="fixed inset-0 z-50 flex items-end justify-center p-3 bg-slate-950/70 backdrop-blur-sm sm:items-center sm:p-4">
+      <div className="bg-slate-800 border border-slate-600/80 rounded-2xl w-full max-w-md shadow-2xl animate-fade-in">
+        <div className="flex items-center justify-between p-5 border-b border-slate-700/80">
           <h3 className="font-semibold text-slate-100">{title}</h3>
           <button
             onClick={onClose}
-            className="text-slate-500 hover:text-slate-300 transition-colors text-xl leading-none"
+            aria-label="Fechar"
+            className="grid size-8 place-items-center rounded-lg text-slate-500 hover:bg-slate-700 hover:text-slate-200 transition-colors text-xl leading-none"
           >
             ×
           </button>
@@ -189,7 +190,7 @@ export function EmptyState({
 }) {
   return (
     <div className="flex flex-col items-center justify-center py-16 text-center">
-      <div className="w-14 h-14 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-600 mb-4">
+      <div className="w-14 h-14 rounded-2xl bg-slate-950/50 border border-slate-700 flex items-center justify-center text-slate-500 mb-4">
         {icon}
       </div>
       <p className="text-slate-300 font-medium">{title}</p>

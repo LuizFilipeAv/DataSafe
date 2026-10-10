@@ -28,16 +28,16 @@ function StatCard({
   sub?: string;
 }) {
   return (
-    <Card className="flex items-start justify-between">
+    <Card className="group flex items-start justify-between overflow-hidden">
       <div>
-        <p className="text-xs font-medium text-slate-500 uppercase tracking-wider">
+        <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-[0.14em]">
           {title}
         </p>
-        <p className="text-3xl font-bold text-slate-50 mt-2">{value}</p>
+        <p className="mt-2 text-3xl font-bold tracking-tight text-slate-50">{value}</p>
         {sub && <p className="text-xs text-slate-500 mt-1">{sub}</p>}
       </div>
       <div
-        className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 ${color}`}
+        className={`grid size-11 place-items-center rounded-2xl shadow-lg ring-4 ring-slate-950/20 flex-shrink-0 ${color}`}
       >
         <Icon size={22} className="text-white" />
       </div>
@@ -74,7 +74,7 @@ export default function DashboardPage() {
       subtitle="Aqui está o resumo do seu sistema de gestão de EPIs."
     >
       {/* Cards de Resumo */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 mb-8">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4 mb-8">
         <StatCard
           title="Total de Funcionários"
           value={funcionarios.length}
@@ -106,11 +106,11 @@ export default function DashboardPage() {
       </div>
 
       {/* Linha inferior: Alertas + Atividade recente */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
         {/* EPIs com estoque crítico */}
         <Card>
-          <div className="flex items-center gap-2 mb-5">
-            <AlertTriangle size={18} className="text-[#FF8C00]" />
+          <div className="flex items-center gap-3 mb-5">
+            <div className="grid size-9 place-items-center rounded-xl bg-orange-500/10 text-[#FF8C00]"><AlertTriangle size={17} /></div>
             <h3 className="font-semibold text-slate-100">Alertas de Estoque</h3>
           </div>
           {episCriticos.length === 0 ? (
@@ -122,7 +122,7 @@ export default function DashboardPage() {
               {episCriticos.map((epi) => (
                 <li
                   key={epi.id}
-                  className="flex items-center justify-between bg-slate-700/40 rounded-lg px-3 py-2.5"
+                  className="flex items-center justify-between rounded-xl border border-slate-700/50 bg-slate-950/25 px-3.5 py-3"
                 >
                   <div>
                     <p className="text-sm font-medium text-slate-200">
@@ -143,8 +143,8 @@ export default function DashboardPage() {
 
         {/* Atividade recente */}
         <Card>
-          <div className="flex items-center gap-2 mb-5">
-            <TrendingUp size={18} className="text-[#FF8C00]" />
+          <div className="flex items-center gap-3 mb-5">
+            <div className="grid size-9 place-items-center rounded-xl bg-orange-500/10 text-[#FF8C00]"><TrendingUp size={17} /></div>
             <h3 className="font-semibold text-slate-100">Atividade Recente</h3>
           </div>
           {ultimasEntregas.length === 0 ? (
