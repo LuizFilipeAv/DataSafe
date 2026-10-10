@@ -69,6 +69,15 @@ interface EPIContextType {
 // ── Criação do Contexto ─────────────────────────────────────
 const EPIContext = createContext<EPIContextType | null>(null);
 
+const CONTA_INICIAL: Empresa = {
+  id: "empresa-demo",
+  nome: "empresa",
+  email: "empresa@datasafe.com",
+  cnpj: "12.345.678/0001-95",
+  senha: "senha123!",
+  criadoEm: "2026-10-10T00:00:00.000Z",
+};
+
 // ── Hook de acesso ao contexto ──────────────────────────────
 export function useEPI(): EPIContextType {
   const ctx = useContext(EPIContext);
@@ -88,6 +97,9 @@ export function EPIProvider({ children }: { children: ReactNode }) {
   // useEffect #1: INICIALIZAÇÃO DA SESSÃO
   // ──────────────────────────────────────────────────────────
   useEffect(() => {
+    if (!getEmpresas().some((empresa) => empresa.email === CONTA_INICIAL.email)) {
+      saveEmpresa(CONTA_INICIAL);
+    }
     const sessaoSalva = getSessao();
     if (sessaoSalva) {
       setSessao(sessaoSalva);

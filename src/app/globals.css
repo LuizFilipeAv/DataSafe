@@ -4,6 +4,7 @@
   --color-ink: #09111f;
   --color-primary: #ff8c00;
   --shadow-panel: 0 18px 48px rgba(2, 8, 23, 0.22);
+  --font-sans: Arial, Helvetica, sans-serif;
 }
 
 :root {
